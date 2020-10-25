@@ -1,0 +1,6 @@
+framework module Pods_EmMusicPlayer {
+  umbrella header "Pods-EmMusicPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

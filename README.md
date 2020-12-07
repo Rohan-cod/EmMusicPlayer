@@ -1,3 +1,5 @@
+# Disclaimer:- This code cannot be used for anything that might be considered commercial use. [License](https://github.com/Rohan-cod/EmMusicPlayer/blob/main/LICENSE)
+
 # EmMusicPlayer
 
 Emotion Based Music Player application for iOS 🎵

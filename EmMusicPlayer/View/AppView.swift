@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import StoreKit
 
 struct AppView: View {
     var body: some View {
@@ -62,16 +63,17 @@ struct Login : View {
     @State var visible = false
     @State var alert = false
     @State var error = ""
+    @State var hasAppleMusicSubscription = false
     
     var body: some View{
         
-        ZStack{
+        ZStack {
             
             ZStack(alignment: .topTrailing) {
                 
-                GeometryReader{_ in
+                GeometryReader {_ in
                     
-                    VStack{
+                    VStack {
                         
                         Text("Log in to your account")
                             .font(.title)
@@ -85,27 +87,52 @@ struct Login : View {
                         
                         
                         
-                        SignInWithAppleToFirebase({ response in
-                            if response == .success {
-                                UserDefaults.standard.set(true, forKey: "status")
-                                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                            } else if response == .error {
-                                self.error = "Failed to Login!"
-                                self.alert.toggle()
-                            }
-                        })
-                        .frame(width: 350, height: 50)
+                        
+                        if self.hasAppleMusicSubscription {
+                            SignInWithAppleToFirebase({ response in
+                                if response == .success {
+                                    UserDefaults.standard.set(true, forKey: "status")
+                                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                                } else if response == .error {
+                                    self.error = "Failed to Login!"
+                                    self.alert.toggle()
+                                }
+                            })
+                            .frame(width: 350, height: 50)
+                        }
+                        
+                        if !self.hasAppleMusicSubscription {
+                            Text("An Active Apple Music Subscription is required!")
+                                .frame(width: 350, height: 50)
+                        }
+                        
+                        
+                        
                         
                         
                     }
-                    .padding(.trailing, 30)
-                    .padding(.leading, 10)
+                    .padding(.trailing, 35)
+                    .padding(.leading, -10)
                 }
             }
             
             if self.alert{
                 
                 ErrorView(alert: self.$alert, error: self.$error)
+            }
+        }
+        .onAppear() {
+            let controller = SKCloudServiceController()
+            controller.requestCapabilities { (capabilities: SKCloudServiceCapability, error: Error?) in
+                guard error == nil else { return }
+                
+                if (capabilities.contains(.musicCatalogSubscriptionEligible) && !capabilities.contains(.musicCatalogPlayback)) {
+                    self.hasAppleMusicSubscription = false
+                } else {
+                    
+                    self.hasAppleMusicSubscription = true
+                    
+                }
             }
         }
     }

@@ -25,14 +25,17 @@
 		7E4482FB2514AFFC005A22BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E4482F92514AFFC005A22BC /* LaunchScreen.storyboard */; };
 		7E4483092514B149005A22BC /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4483082514B149005A22BC /* AppView.swift */; };
 		7E44830B2514B15D005A22BC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E44830A2514B15D005A22BC /* TabBarView.swift */; };
-		7E44830D2514BC7B005A22BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E44830C2514BC7A005A22BC /* GoogleService-Info.plist */; };
-		7E9CA3F02543103400873C99 /* EmotionClassification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CA3EF2543103400873C99 /* EmotionClassification.mlmodel */; };
 		7EB2140E2514F481002CA480 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2140D2514F481002CA480 /* SearchView.swift */; };
 		7EE9B1B82518BE3400A987DB /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9B1B32518BE3400A987DB /* UserData.swift */; };
 		7EE9B1B92518BE3400A987DB /* UserDataKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9B1B42518BE3400A987DB /* UserDataKeychain.swift */; };
 		7EE9B1BA2518BE3400A987DB /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9B1B52518BE3400A987DB /* Keychain.swift */; };
 		7EE9B1BB2518BE3400A987DB /* SharedWebCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9B1B62518BE3400A987DB /* SharedWebCredential.swift */; };
 		7EE9B1BC2518BE3400A987DB /* SignInWithAppleToFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9B1B72518BE3400A987DB /* SignInWithAppleToFirebase.swift */; };
+		7EF6191B2583CA1000E04FEA /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6191A2583CA1000E04FEA /* DashboardView.swift */; };
+		7EF6191E2583CA1E00E04FEA /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6191D2583CA1E00E04FEA /* LocationView.swift */; };
+		7EF619212583CA3100E04FEA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF619202583CA3100E04FEA /* Place.swift */; };
+		7EF619242583CA4F00E04FEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF619232583CA4F00E04FEA /* Extensions.swift */; };
+		7EF619282583CA6700E04FEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF619272583CA6700E04FEA /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,18 +55,19 @@
 		7E4482F42514AFFC005A22BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E4482F72514AFFC005A22BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7E4482FA2514AFFC005A22BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7E4482FC2514AFFC005A22BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E4483082514B149005A22BC /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		7E44830A2514B15D005A22BC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		7E44830C2514BC7A005A22BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7E901A43252F241000EE1DBE /* EmMusicPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EmMusicPlayer.entitlements; sourceTree = "<group>"; };
-		7E9CA3EF2543103400873C99 /* EmotionClassification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionClassification.mlmodel; sourceTree = "<group>"; };
 		7EB2140D2514F481002CA480 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7EE9B1B32518BE3400A987DB /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7EE9B1B42518BE3400A987DB /* UserDataKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataKeychain.swift; sourceTree = "<group>"; };
 		7EE9B1B52518BE3400A987DB /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		7EE9B1B62518BE3400A987DB /* SharedWebCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedWebCredential.swift; sourceTree = "<group>"; };
 		7EE9B1B72518BE3400A987DB /* SignInWithAppleToFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithAppleToFirebase.swift; sourceTree = "<group>"; };
+		7EF6191A2583CA1000E04FEA /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		7EF6191D2583CA1E00E04FEA /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		7EF619202583CA3100E04FEA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		7EF619232583CA4F00E04FEA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7EF619272583CA6700E04FEA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9E53DE0D5BD10AABE09C0A9C /* Pods-EmMusicPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmMusicPlayer.release.xcconfig"; path = "Target Support Files/Pods-EmMusicPlayer/Pods-EmMusicPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		CD2559156F448D6C513DF84B /* Pods_EmMusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmMusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,19 +123,15 @@
 		7E4482ED2514AFF9005A22BC /* EmMusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				7E901A43252F241000EE1DBE /* EmMusicPlayer.entitlements */,
 				7EE122522515FDF000D8CBA3 /* Controller */,
 				7E4483072514B102005A22BC /* Delegate */,
 				7E4483042514B0C5005A22BC /* View */,
 				7E4483032514B0AB005A22BC /* Model */,
 				7E4483022514B08C005A22BC /* Extension */,
 				7E4482F42514AFFC005A22BC /* Assets.xcassets */,
-				7E9CA3EF2543103400873C99 /* EmotionClassification.mlmodel */,
 				7E38B9122540606E001DC335 /* EmotionClassifier.mlmodel */,
 				7E38B915254067A3001DC335 /* EmotionClassifier2.mlmodel */,
 				7E4482F92514AFFC005A22BC /* LaunchScreen.storyboard */,
-				7E4482FC2514AFFC005A22BC /* Info.plist */,
-				7E44830C2514BC7A005A22BC /* GoogleService-Info.plist */,
 				7E4482F62514AFFC005A22BC /* Preview Content */,
 			);
 			path = EmMusicPlayer;
@@ -150,6 +150,8 @@
 			children = (
 				7EE9B1B22518BE3400A987DB /* CredentialStorage */,
 				7EE9B1B72518BE3400A987DB /* SignInWithAppleToFirebase.swift */,
+				7EF619232583CA4F00E04FEA /* Extensions.swift */,
+				7EF619272583CA6700E04FEA /* LocationManager.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				7E299FBE2517437900090764 /* Song.swift */,
+				7EF619202583CA3100E04FEA /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +174,8 @@
 				7E11F6ED2514E1F20081778A /* EmotionView.swift */,
 				7EB2140D2514F481002CA480 /* SearchView.swift */,
 				7E299FC5251745AD00090764 /* PlayerView.swift */,
+				7EF6191A2583CA1000E04FEA /* DashboardView.swift */,
+				7EF6191D2583CA1E00E04FEA /* LocationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E4482FB2514AFFC005A22BC /* LaunchScreen.storyboard in Resources */,
-				7E44830D2514BC7B005A22BC /* GoogleService-Info.plist in Resources */,
 				7E4482F82514AFFC005A22BC /* Preview Assets.xcassets in Resources */,
 				7E4482F52514AFFC005A22BC /* Assets.xcassets in Resources */,
 			);
@@ -326,14 +330,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF619242583CA4F00E04FEA /* Extensions.swift in Sources */,
 				7EE9B1BA2518BE3400A987DB /* Keychain.swift in Sources */,
 				7E4482EF2514AFF9005A22BC /* AppDelegate.swift in Sources */,
 				7E4482F12514AFF9005A22BC /* SceneDelegate.swift in Sources */,
 				7EE9B1B82518BE3400A987DB /* UserData.swift in Sources */,
+				7EF6191E2583CA1E00E04FEA /* LocationView.swift in Sources */,
 				7E299FB92517414400090764 /* SwiftyJSON.swift in Sources */,
 				7E38B9132540606F001DC335 /* EmotionClassifier.mlmodel in Sources */,
 				7EE9B1B92518BE3400A987DB /* UserDataKeychain.swift in Sources */,
 				7E38B916254067A3001DC335 /* EmotionClassifier2.mlmodel in Sources */,
+				7EF619212583CA3100E04FEA /* Place.swift in Sources */,
 				7EE9B1BB2518BE3400A987DB /* SharedWebCredential.swift in Sources */,
 				7E4483092514B149005A22BC /* AppView.swift in Sources */,
 				7E44830B2514B15D005A22BC /* TabBarView.swift in Sources */,
@@ -342,8 +349,9 @@
 				7E4482F32514AFF9005A22BC /* ContentView.swift in Sources */,
 				7E299FC6251745AD00090764 /* PlayerView.swift in Sources */,
 				7E04E60A2516016D00DE039B /* ImagePicker.swift in Sources */,
-				7E9CA3F02543103400873C99 /* EmotionClassification.mlmodel in Sources */,
 				7E11F6EE2514E1F20081778A /* EmotionView.swift in Sources */,
+				7EF619282583CA6700E04FEA /* LocationManager.swift in Sources */,
+				7EF6191B2583CA1000E04FEA /* DashboardView.swift in Sources */,
 				7E299FBF2517437900090764 /* Song.swift in Sources */,
 				7EB2140E2514F481002CA480 /* SearchView.swift in Sources */,
 			);

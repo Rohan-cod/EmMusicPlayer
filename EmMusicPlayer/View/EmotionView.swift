@@ -22,14 +22,26 @@ struct EmotionView: View {
     @State private var recommendedSongs = [Song]()
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var musicPlayer: MPMusicPlayerController
+    var colours: [String: Color] = ["Happy": Color(#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)), "Sad": Color(#colorLiteral(red: 0, green: 0.490196079, blue: 1, alpha: 1)), "Angry": Color(#colorLiteral(red: 1, green: 0.0112339483, blue: 0, alpha: 1)), "Fear": Color(#colorLiteral(red: 0.8131402526, green: 0, blue: 0.7656604921, alpha: 1)), "Surprise": Color(#colorLiteral(red: 0.9607843161, green: 0.5402659535, blue: 0.02331045362, alpha: 1)), "Neutral": Color(#colorLiteral(red: 0.6354643879, green: 0.400150011, blue: 0.1502078149, alpha: 1)), "Disgust": Color(#colorLiteral(red: 0.3352483009, green: 0.9607843161, blue: 0.1836980005, alpha: 1))]
     private var text: String {
         if mood == "Happy" {
             return "Yay! You are Happy🤩\nSome songs for you to make your mood even better🤟"
         } else if mood == "Sad" {
-            return "You are sad🙁\nThese songs will cheer you up🥳"
+            return "You are Sad🙁\nThese songs will cheer you up🥳"
+        } else if mood == "Angry" {
+            return "You are Angry😡\nSome songs to help you cool down😇"
+        } else if mood == "Disgust" {
+            return "You are Disgust😫\nThese songs will help you improve your mood😃"
+        } else if mood == "Fear" {
+            return "You are Afraid😨\nDon't be afraid, listen to these songs and relax☺️"
+        } else if mood == "Neutral" {
+            return "Your mood is Neutral😐\nThese songs will cheer you up🥳"
+        } else if mood == "Surprise" {
+            return "You are Surprised😮\nSome songs According to your mood😀"
         } else {
             return mood
         }
+        
     }
     
     
@@ -46,7 +58,7 @@ struct EmotionView: View {
                             .padding(.all, 5)
                         Text(text)
                             .fixedSize(horizontal: false, vertical: true)
-                            .foregroundColor((mood == "Happy" ? .green : .red))
+                            .foregroundColor(colours[mood])
                     }
                     .padding(.bottom, 20)
                     Spacer()
@@ -54,6 +66,7 @@ struct EmotionView: View {
                         Text("Recommended Songs")
                             .padding(.all, 10)
                             .font(.system(size: 30, weight: Font.Weight.heavy))
+                            .foregroundColor(colours[mood])
                     }
                     ForEach(self.recommendedSongs, id:\.id) { song in
                         NavigationLink(destination: PlayerView(musicPlayer: $musicPlayer, currentSong: song)) {
@@ -106,15 +119,40 @@ struct EmotionView: View {
                     
                     detect(image: ciImage)
                     
+                    let currentCount = UserDefaults.standard.integer(forKey: mood)
+                    UserDefaults.standard.set(currentCount+1, forKey: mood)
+                    
+                    
+                    
                     SKCloudServiceController.requestAuthorization { (status) in
                         if status == .authorized {
                             print("Before")
                             if mood == "Happy" {
-                                AppleMusicAPI().searchAppleMusic("Energetic Songs") { (songs) in
+                                AppleMusicAPI().searchAppleMusic("Happy Songs") { (songs) in
                                     self.recommendedSongs = songs
                                 }
                             } else if mood == "Sad" {
-                                AppleMusicAPI().searchAppleMusic("Happy Songs") { (songs) in
+                                AppleMusicAPI().searchAppleMusic("Sad Songs") { (songs) in
+                                    self.recommendedSongs = songs
+                                }
+                            } else if mood == "Angry" {
+                                AppleMusicAPI().searchAppleMusic("Angry Songs") { (songs) in
+                                    self.recommendedSongs = songs
+                                }
+                            } else if mood == "Disgust" {
+                                AppleMusicAPI().searchAppleMusic("Disgust Songs") { (songs) in
+                                    self.recommendedSongs = songs
+                                }
+                            } else if mood == "Fear" {
+                                AppleMusicAPI().searchAppleMusic("Fear Songs") { (songs) in
+                                    self.recommendedSongs = songs
+                                }
+                            } else if mood == "Neutral" {
+                                AppleMusicAPI().searchAppleMusic("Neutral Songs") { (songs) in
+                                    self.recommendedSongs = songs
+                                }
+                            } else if mood == "Surprise" {
+                                AppleMusicAPI().searchAppleMusic("Surprise Songs") { (songs) in
                                     self.recommendedSongs = songs
                                 }
                             } else {
@@ -140,8 +178,8 @@ struct EmotionView: View {
     
     
     func detect(image: CIImage) {
-        
-        guard let model = try? VNCoreMLModel(for: EmotionClassifier2().model) else {
+        let configuration = MLModelConfiguration()
+        guard let model = try? VNCoreMLModel(for: EmotionClassification(configuration: configuration).model) else {
             print("Cannot create model.")
             return
         }
